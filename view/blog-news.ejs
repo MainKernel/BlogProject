@@ -1,0 +1,23 @@
+<%- include("template/header.ejs"); %>
+<%if(locals.article){%>
+<div class="container-fluid">
+    <div class="d-grid">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center"><%=article.title%></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="text-center"><%=article.content%></p>
+            </div>
+        </div>
+    </div>  
+</div>
+<%}else{%>
+<div class="container-fluid">
+  <h1>Somthing goes wrong....</h1>
+</div>
+
+<%}%>
+<%- include("template/footer.ejs"); %>
