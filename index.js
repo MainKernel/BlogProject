@@ -1,5 +1,5 @@
 import express from "express";
-import {dirname} from "path";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 
@@ -10,31 +10,30 @@ const blogsArticles = new Array();
 const blogsId = 10;
 
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
     res.render(__dir + "/view/index.ejs");
 });
 
-app.get("/about", (req, res) =>{
+app.get("/about", (req, res) => {
     res.render(__dir + "/view/about.ejs");
 });
 
 app.get("/blogs", (req, res) => {
     res.render(__dir + "/view/blog.ejs", {
-        blogs: blogsArticles 
+        blogs: blogsArticles
     });
 });
 
-app.get("/blogs/:id", (req, res) =>{
+app.get("/blogs/:id", (req, res) => {
     let articleID = req.params.id;
-    res.render(__dir + "/view/blog-news.ejs",{
-        article: blogsArticles[(articleID-1)]
+    res.render(__dir + "/view/blog-news.ejs", {
+        article: blogsArticles[(articleID - 1)]
     })
 });
 
-app.listen(port, () =>
-{
+app.listen(port, () => {
     console.log("App listening on port: " + port);
 });
 
